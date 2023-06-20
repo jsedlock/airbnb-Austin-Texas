@@ -3,7 +3,7 @@ AIRBNB portfolio project
 
 SQL querys to create tables to be used in Tableau visulizations
 
-Skills used: Joins, CTEs, Subqueries, Temp Tables, Cleaning Strings, Aggregate Functions
+Skills used: Joins, CTEs, Subqueries, Cleaning Strings, Aggregate Functions
 */
 
 
@@ -42,15 +42,20 @@ SELECT id,
 FROM NightlyPrice
 WHERE accommodates IS NOT NULL AND accommodates <> 0
 
+
 -- Latitiude and Longitude of each listing to make a map visualization
 
-
+SELECT id, latitude, longitude
+FROM listings
 
 
 
 -- Ditrubtion of room types
 
-
+SELECT room_type, COUNT(room_type) as Num_type
+FROM listings
+GROUP BY room_type
+ORDER BY Num_type DESC
 
 
 -- # of reviews over time
