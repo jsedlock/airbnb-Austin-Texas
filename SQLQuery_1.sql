@@ -9,7 +9,13 @@ Skills used: Joins, CTEs, Subqueries, Cleaning Strings, Aggregate Functions
 
 SELECT *
 From listings
-WHERE neighbourhood IS NULL
+
+
+-- General High Level stats
+
+SELECT COUNT(id), AVG(availability_30) as AVGmonthAvailability
+FROM listings
+
 
 -- Clean Neighbourhood data and look at the distribuitons of neighbourhoods
 
@@ -45,14 +51,14 @@ WHERE accommodates IS NOT NULL AND accommodates <> 0
 
 -- Latitiude and Longitude of each listing to make a map visualization
 
-SELECT id, latitude, longitude
+SELECT id, latitude, longitude, room_type
 FROM listings
 
 
 
 -- Ditrubtion of room types
 
-SELECT room_type, COUNT(room_type) as Num_type
+SELECT  room_type, COUNT(room_type) as Num_type
 FROM listings
 GROUP BY room_type
 ORDER BY Num_type DESC
